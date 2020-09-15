@@ -66,3 +66,32 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+--- 
+
+# LAB - Class 26
+
+## Project: Component Based UI
+
+### Author: Jennifer Chinzi
+
+### Links and Resources
+
+- tbd
+
+### Setup
+
+- tbd
+
+#### How to initialize/run your application (where applicable)
+
+- e.g. `npm start`
+
+#### Tests
+
+- n/a
+
+#### UML
+
+Link to an image of the UML for your application and response to events
+![](lab-26-uml.png)
