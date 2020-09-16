@@ -1,8 +1,8 @@
-// The <Form> component should:
-//    Use it’s own .scss file for styling
-//    Accept user input for a URL and store it in state
-//    Allow the user to choose a method and store it in state
-//    This can be done with radio buttons or clickable elements
+// Expects a function to be sent to it as a prop
+// Renders a URL entry form
+// A selection of REST methods to choose from (“get” should be the default)
+// On submit
+  // Send the API results back to the <App> using the method sent down in props
 
 import React from 'react';
 import './Form.scss'
@@ -22,9 +22,23 @@ class Form extends React.Component {
     this.setState({url});
   }
 
-  handleClick = event => {
+  handleClick = async event => {
     event.preventDefault();
-    // Not currently a useful button
+
+    let raw = await fetch(this.state.url);
+
+    let headers = {};
+    raw.headers.forEach((val, key) => headers[key]=val);
+
+    console.log('Headers:', headers);
+
+    let data = await raw.json();
+    console.log('Data:', data);
+    let count = data.count;
+    let results = data.results;
+
+      // pass count and results to handler that was passed through props
+    this.props.handler(count, results, headers);
   }
 
   handleRadio = event => {
@@ -34,26 +48,21 @@ class Form extends React.Component {
   
   render() {
     return (
-      <div>
-        <form className="Form">
-          <h3>URL: <input onChange={this.handleURL}/><button onClick={this.handleClick}>GO!</button></h3>
+      <>
+        <form onSubmit={this.handleClick}>
+          <h3>URL: <input onChange={this.handleURL}/><button>GO!</button></h3>
           <div className="Radio">
-            <input type="radio" id="get" name="method" value="GET" onChange={this.handleRadio} />
-            <label for="GET">GET</label>
+            <input type="radio" id="get" name="method" value="GET" checked="checked" onChange={this.handleRadio} />
+            <label htmlFor="GET">GET</label>
             <input type="radio" id="post" name="method" value="POST" onChange={this.handleRadio} />
-            <label for="POST">POST</label>
+            <label htmlFor="POST">POST</label>
             <input type="radio" id="put" name="method" value="PUT" onChange={this.handleRadio} />
-            <label for="PUT">PUT</label>
+            <label htmlFor="PUT">PUT</label>
             <input type="radio" id="delete" name="method" value="DELETE" onChange={this.handleRadio} />
-            <label for="DELETE">DELETE</label>
+            <label htmlFor="DELETE">DELETE</label>
           </div>
         </form>
-        <section className="Choice">
-      {/* //    Display the user’s choices on screen in a separate <div> or <section> under the form */}
-          <h3>{this.state.method}</h3>
-          <h3>{this.state.url}</h3>
-        </section>
-      </div>
+      </>
     )
   }
 

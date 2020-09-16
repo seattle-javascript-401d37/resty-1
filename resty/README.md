@@ -95,3 +95,33 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 Link to an image of the UML for your application and response to events
 ![](lab-26-uml.png)
+
+--- 
+
+# LAB - Class 27
+
+## Project: Props and State
+
+### Author: Jennifer Chinzi
+
+### Links and Resources
+
+- tbd
+
+### Setup
+
+- tbd
+
+#### How to initialize/run your application (where applicable)
+
+- e.g. `npm start`
+
+#### Tests
+
+- n/a
+
+#### UML
+
+Link to an image of the UML for your application and response to events
+![](lab-26-uml.png) 
+<!-- To Be Updated -->

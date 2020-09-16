@@ -1,6 +1,3 @@
-// The <Header> component should use it’s own .scss file for styling
-
-
 import React from 'react';
 import './Header.scss'
 
